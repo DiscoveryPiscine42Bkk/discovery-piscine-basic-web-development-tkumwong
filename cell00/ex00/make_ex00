@@ -1,0 +1,7 @@
+
+#!/bin/bash
+
+BASE="/mnt/c/Users/Tawan/OneDrive/Documents/TAWAN/WORK 4/42"
+
+mkdir -p "$BASE/discovery_piscine/cell00"
+mkdir -p "$BASE/discovery_piscine/cell00"/ex{00..05}
