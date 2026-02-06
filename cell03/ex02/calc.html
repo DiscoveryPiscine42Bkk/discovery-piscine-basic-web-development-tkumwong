@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CALCULATOR</title>
+    <link rel="stylesheet" href="calc.css">
+    <script src="calc.js"></script>
+  </head>
+  <body>
+    <div id="calculator">
+        <input
+            type="text"
+            id="leftOperand"
+            placeholder="Enter a number"
+            pattern="\d+"
+            required
+        />
+      
+        <select id="operator" required>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+
+        <input
+            type="text"
+            id="rightOperand"
+            placeholder="Enter a number"
+            pattern="\d+"
+            required
+        />
+
+        <input  
+            type="submit"
+            value="Try me!" 
+            onclick="calculate()" 
+        />
+        
+    </div>
+  </body>
+</html>
