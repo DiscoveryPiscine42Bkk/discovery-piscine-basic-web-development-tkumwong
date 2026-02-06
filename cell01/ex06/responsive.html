@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive</title>
+
+  <style>
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed; 
+    }
+
+    td {
+      width: 50%;
+      border: 1px solid black;
+      padding: 24px 0;      
+    }
+
+    p {
+      margin: 0;
+      text-align: center;
+      font-weight: 700;
+      font-size: 24px;
+    }
+
+    
+    @media screen and (max-width: 1000px) {
+      tr {
+        display: block;
+      }
+
+      td {
+        display: block;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <tr>
+      <td style="background-color: yellow;">
+        <p>CAREROT</p>
+      </td>
+
+      <td style="background-color: purple;">
+        <p style="color: white;">TAWAN</p>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
