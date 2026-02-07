@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CALCULATOR</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      #calculator {
+        text-align: center;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div id="calculator">
+        <input type="text" id="leftOperand" placeholder="Enter a number" required />
+        <select id="operator" required>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+        <input type="text" id="rightOperand" placeholder="Enter a number" required />
+        <input type="submit" value="Try me!" id="calculateButton" />
+    </div>
+    <script>
+      $(document).ready(function() {
+        $('#calculateButton').on('click', function() {
+            const leftOperand = $('#leftOperand').val();
+            const operator = $('#operator').val();
+            const rightOperand = $('#rightOperand').val();
+
+            // Check for leading or trailing spaces
+            if (leftOperand !== leftOperand.trim() || rightOperand !== rightOperand.trim()) {
+                alert("Error :(");
+                return;
+            }
+
+            // Trim the input values
+            const trimmedLeftOperand = leftOperand.trim();
+            const trimmedRightOperand = rightOperand.trim();
+
+            // Check if inputs contain decimal points
+            if (trimmedLeftOperand.includes('.') || trimmedRightOperand.includes('.')) {
+                alert("Error :(");
+                return;
+            }
+
+            // Check if inputs are valid numbers
+            if (isNaN(trimmedLeftOperand) || isNaN(trimmedRightOperand)) {
+                alert("Error :(");
+                return;
+            }
+
+            const leftNum = parseFloat(trimmedLeftOperand);
+            const rightNum = parseFloat(trimmedRightOperand);
+
+            if (leftNum < 0 || rightNum < 0) {
+                alert("Error :(");
+                return;
+            }
+
+            let result;
+
+            switch (operator) {
+                case "+":
+                    result = leftNum + rightNum;
+                    break;
+                case "-":
+                    result = leftNum - rightNum;
+                    break;
+                case "*":
+                    result = leftNum * rightNum;
+                    break;
+                case "/":
+                    if (rightNum === 0) {
+                        alert("It's over 9000!");
+                        console.error("Division by zero");
+                        return;
+                    }
+                    result = leftNum / rightNum;
+                    break;
+                case "%":
+                    if (rightNum === 0) {
+                        alert("It's over 9000!");
+                        console.error("Modulo by zero");
+                        return;
+                    }
+                    result = leftNum % rightNum;
+                    break;
+                default:
+                    alert("Invalid operator");
+                    return;
+            }
+
+            alert(`Result: ${result}`);
+            console.log(`Result: ${result}`);
+        });
+
+        setInterval(function() {
+            alert("Please, use me...");
+        }, 30000);
+    });
+    </script>
+</body>
+</html>
